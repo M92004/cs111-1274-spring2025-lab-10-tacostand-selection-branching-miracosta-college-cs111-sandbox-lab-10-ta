@@ -37,7 +37,7 @@ public class Main
 	}
 
 	/**
-	 * Outputs welcome message to start program that user sees
+	 * Outputs/prints welcome message to start program that user sees
 	 */
 	public static void printWelcome()
 	{
@@ -72,7 +72,7 @@ public class Main
 	}
 
 	/**
-	 * Prints confirmation message that varies based on number of tacos in order
+	 * Prints confirmation message that varies based on number of tacos in order (low 1-2; medium 3-5, large 6*)
 	 * 
 	 * @param numTacos
 	 */

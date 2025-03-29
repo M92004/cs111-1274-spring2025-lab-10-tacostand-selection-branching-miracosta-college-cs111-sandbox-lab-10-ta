@@ -2,6 +2,7 @@ public class TacoStand
 {
     /* CONSTANT VARIABLES */
 	public static final String BAR = "----------------------------------------";
+	//public static final int ASADA_OPTION = 1,...
 
 	/* STATIC VARIABLES */
 	private static int numAsada = 0, numPollo = 0, numLengua = 0, numUltimate = 0;
@@ -71,17 +72,25 @@ public class TacoStand
 	 */
 	public static boolean orderSupplies(double budget)
 	{
+		if(budget <= TacoStand.totalFunds){
+		
 		//tacos cost 75 cents each in supplies, keeping it simple
 	    int tacosEach = (int)(Math.round(budget / 0.75 / 4));
 
-	    TacoStand.totalFunds -= budget;
+	    TacoStand.totalFunds -= budget; //similarly: totalFunds=totalFunds-budget;
 
 	    TacoStand.numAsada += tacosEach;
 	    TacoStand.numPollo += tacosEach;
 	    TacoStand.numLengua += tacosEach;
 	    TacoStand.numUltimate += tacosEach;
 
-		return true;  //TODO: this is stubbed, replace this line with your actual code!
+		return true; //you can also set a variable = true/false here
+	}
+		else
+	{ 
+		return false;
+	}
+		
 	}
 
 	/**
@@ -93,7 +102,38 @@ public class TacoStand
 	 */
 	public static void updateTotalFunds(int tacoOption, int numTacos)
 	{
-		//TODO: this is stubbed, replace this line with your actual code!
+		double cost; //now declared throughout whole method
+	//ALGORITHM
+	//CALC totalFunds += tacoOption cost (varying costs depending on option) * numTacos
+	//CALC (four diff variables) tacoOption count -= numTacos
+	switch(tacoOption){
+		case 1: //runs option/case and displays below until it hits {}
+		//asada
+		cost = 2.5; //asada price //if dble cost: declared this variable within this block (switch stmt) that will only be used here
+		TacoStand.numAsada -= numTacos; //Updated numAsada after purchase calculate for ea. case
+		break; //BUT that's what the break statement is here for :3
+		case 2: //it stops the switch from running after specific case is chosen
+		//pollo 	//keeping it relevant
+		cost = 1.75; //pollo price
+		TacoStand.numPollo -= numTacos;
+		break;
+		case 3: //if using constant (that was initialized in comments for ex) you can make it case TacoStand.POLLO_OPTION
+		//lengua //^^ self-documenting code
+		cost = 3.0;
+		TacoStand.numLengua -= numTacos;
+		break;
+		case 4:
+		//ultimate
+		cost = 18.0;
+		TacoStand.numUltimate -= numTacos;
+		break;
+		default:
+		//error
+		cost = 0;
+		break;
+		}
+		//calc customer's cost outside of switch stmt
+		TacoStand.totalFunds += cost*numTacos;
 	}
 	
 	
