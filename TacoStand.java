@@ -2,7 +2,7 @@ public class TacoStand
 {
     /* CONSTANT VARIABLES */
 	public static final String BAR = "----------------------------------------";
-	//public static final int ASADA_OPTION = 1,...
+	public static final int ASADA_OPTION = 1, POLLO_OPTION = 2, LENGUA_OPTION = 3, ULTIMATE_OPTION = 4;
 
 	/* STATIC VARIABLES */
 	private static int numAsada = 0, numPollo = 0, numLengua = 0, numUltimate = 0;
@@ -147,6 +147,54 @@ public class TacoStand
 	 */
 	public static boolean areTacosAvailable(int tacoOption, int numTacos)
 	{
-		return false; //TODO: this is stubbed, replace this line with your actual code!
+	
+		//complex boolean:
+		return (tacoOption == TacoStand.ASADA_OPTION && numTacos <= TacoStand.numAsada) ||
+				(tacoOption == TacoStand.POLLO_OPTION && numTacos <= TacoStand.numPollo)||
+				(tacoOption == TacoStand.LENGUA_OPTION && numTacos <= TacoStand.numLengua)||
+				(tacoOption == TacoStand.ULTIMATE_OPTION && numTacos <= TacoStand.numUltimate);
+	
+		//if else approach
+		/* 
+		if(	(tacoOption == TacoStand.ASADA_OPTION && numTacos <= TacoStand.numAsada)||
+			(tacoOption == TacoStand.POLLO_OPTION && numTacos <= TacoStand.numPollo)||
+			(tacoOption == TacoStand.LENGUA_OPTION && numTacos <= TacoStand.numLengua)||
+			(tacoOption == TacoStand.ULTIMATE_OPTION && numTacos <= TacoStand.numUltimate)){
+
+			return true;
+		}
+		else{
+			return false;
+		}
+	
+		//multiway if approach w/ AND: return true if any (OR) of the 4 "available scenarios"
+		if(tacoOption == TacoStand.ASADA_OPTION){
+			return numTacos <= TacoStand.numAsada;
+		}
+		else if(tacoOption == TacoStand.POLLO_OPTION){
+			return numTacos <= TacoStand.numPollo;
+		}
+		else if(tacoOption == TacoStand.LENGUA_OPTION){
+			return numTacos <= TacoStand.numLengua;
+		}
+		else if(tacoOption == TacoStand.ULTIMATE_OPTION){
+			return numTacos <= TacoStand.numUltimate;
+		}
+		else{
+			return false;
+		}
+
+
+		//swith approach
+		/* 
+		switch(tacoOption){
+			case TacoStand.ASADA_OPTION:
+				return numTacos <= TacoStand.numAsada;
+				break;
+				*/ //rest of cases
+				// ...
+				// default:
+				//	return false;
+				
+		}
 	}
-}
